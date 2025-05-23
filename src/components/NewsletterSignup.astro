@@ -1,0 +1,91 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Subscribe to the Journal',
+  description = 'Join our community of thoughtful readers. Receive new entries directly in your inbox and never miss an update.',
+} = Astro.props;
+---
+
+<div class="relative py-16 sm:py-24 md:py-32 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-stone-50 via-stone-100/30 to-stone-50"></div>
+
+  <!-- Decorative elements -->
+  <div
+    class="hidden sm:block absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-stone-200/50 to-transparent"
+  >
+  </div>
+  <div
+    class="hidden sm:block absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-t from-transparent via-stone-200/50 to-transparent"
+  >
+  </div>
+  <div
+    class="hidden sm:block absolute top-1/2 -translate-y-1/2 left-0 w-32 h-px bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"
+  >
+  </div>
+  <div
+    class="hidden sm:block absolute top-1/2 -translate-y-1/2 right-0 w-32 h-px bg-gradient-to-l from-transparent via-stone-200/50 to-transparent"
+  >
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="relative max-w-xl mx-auto text-center">
+      <div class="mb-8 sm:mb-12">
+        <div class="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+          <span class="w-6 sm:w-8 h-px bg-stone-200"></span>
+          <span class="font-mono text-sm tracking-tight text-stone-500">Stay Connected</span>
+          <span class="w-6 sm:w-8 h-px bg-stone-200"></span>
+        </div>
+        <h2 class="font-primary text-3xl sm:text-4xl md:text-5xl text-stone-900 mb-4 sm:mb-6">{title}</h2>
+        <p class="text-base sm:text-lg text-stone-600 leading-relaxed">
+          {description}
+        </p>
+      </div>
+
+      <form class="relative" action="#" method="POST">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <div class="flex-1 relative group">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-stone-200/50 via-stone-100/50 to-stone-200/50 rounded-lg opacity-0 group-hover:opacity-100 transition duration-500"
+            >
+            </div>
+            <div class="relative">
+              <label for="email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                class="w-full px-4 py-3 bg-white border border-stone-200 rounded-lg text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-200 focus:border-transparent transition duration-300"
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="relative group px-6 py-3 bg-stone-900 text-white font-mono text-sm tracking-tight rounded-lg cursor-pointer transition duration-300 hover:bg-stone-800"
+          >
+            <div
+              class="absolute inset-0 bg-stone-800 rounded-lg opacity-0 group-hover:opacity-100 transition duration-300"
+            >
+            </div>
+            <span class="relative flex items-center justify-center gap-2 sm:gap-3">
+              Subscribe
+              <span class="w-4 sm:w-6 h-px bg-white/50 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
+            </span>
+          </button>
+        </div>
+        <div class="mt-4 sm:mt-6 flex items-center justify-center gap-3 sm:gap-4">
+          <span class="w-6 sm:w-8 h-px bg-stone-200"></span>
+          <p class="font-mono text-sm text-stone-400 tracking-tight">
+            No spam. Unsubscribe anytime.
+          </p>
+          <span class="w-6 sm:w-8 h-px bg-stone-200"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

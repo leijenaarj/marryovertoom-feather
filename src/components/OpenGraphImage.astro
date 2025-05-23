@@ -1,0 +1,64 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  label?: string;
+}
+
+const { 
+  title = "A Minimal Blog Theme for Astro", 
+  description = "Clean typography, subtle design elements, and blazing-fast performance. Built with Astro, Tailwind CSS, and a focus on readability.", 
+  label = "astrothem.es" 
+} = Astro.props;
+---
+
+<div class="w-[1200px] h-[630px] bg-stone-100 flex items-center justify-center p-24 relative">
+  <!-- Content Container -->
+  <div class="relative w-full flex flex-col justify-between h-full">
+    <!-- Main Content -->
+    <div class="max-w-5xl">
+      <!-- Label -->
+      <div class="inline-flex items-center gap-4 mb-10">
+        <span class="w-12 h-px bg-stone-200"></span>
+        <span class="font-mono text-base text-stone-500 tracking-tight">{label}</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-primary text-7xl text-stone-900 leading-[1.1] tracking-tight mb-10 max-w-4xl">
+        {title}
+      </h1>
+
+      <!-- Description -->
+      {description && (
+        <div class="relative pl-16 max-w-3xl">
+          <span class="absolute left-0 top-[0.8em] w-12 h-px bg-stone-200"></span>
+          <p class="text-2xl text-stone-600 leading-relaxed">
+            {description}
+          </p>
+        </div>
+      )}
+    </div>
+
+    <!-- Site Info -->
+    <div class="relative pl-16">
+      <span class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-px bg-stone-200"></span>
+      <div class="flex items-center gap-4">
+        <span class="font-primary text-3xl text-stone-600">Feather</span>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="1.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          class="w-8 h-8 text-stone-600 -rotate-12"
+        >
+          <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+          <line x1="16" y1="8" x2="2" y2="22"></line>
+          <line x1="17.5" y1="15" x2="9" y2="15"></line>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div> 

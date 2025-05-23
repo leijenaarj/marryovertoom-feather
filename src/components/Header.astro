@@ -1,0 +1,24 @@
+---
+import Navigation from './Navigation.astro';
+import Logo from './Logo.astro';
+---
+
+<header class="relative py-6 sm:py-8 md:py-12">
+
+	<!-- Top border -->
+	<div class="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
+
+	<div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+		<div class="flex items-center justify-between gap-6 sm:gap-8 md:gap-12">
+			<Logo />
+			<Navigation />
+		</div>
+	</div>
+
+	<!-- Bottom border -->
+	<div class="absolute bottom-0 w-full">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6">
+			<div class="h-px w-full bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
+		</div>
+	</div>
+</header>

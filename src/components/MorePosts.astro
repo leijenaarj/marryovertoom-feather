@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleList from './ArticleList.astro';
+
+interface Props {
+  currentPostId?: string;
+  limit?: number;
+}
+
+const { currentPostId, limit = 3 } = Astro.props;
+
+// Get recent posts, excluding the current one
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .filter(post => post.id !== currentPostId)
+  .slice(0, limit);
+---
+
+<div class="relative py-16 sm:py-24">
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Header -->
+    <div class="relative mb-16 sm:mb-24">
+      <div class="relative max-w-xl">
+        <div class="inline-flex items-center gap-3 mb-8">
+          <span class="w-8 h-px bg-stone-200"></span>
+          <span class="font-mono text-sm text-stone-500 tracking-tight">
+            Continue Reading
+          </span>
+        </div>
+        <h2 class="font-primary text-4xl sm:text-5xl text-stone-900 mb-6">More Entries</h2>
+        <p class="text-base sm:text-lg text-stone-600 leading-relaxed">
+          Discover more articles you might enjoy from the journal.
+        </p>
+      </div>
+    </div>
+
+    {posts.length > 0 ? (
+      <ArticleList posts={posts} showHeader={false} />
+    ) : (
+      <div class="py-8 pl-12">
+        <p class="font-primary text-lg text-stone-600 leading-relaxed">
+          No other entries found.
+        </p>
+      </div>
+    )}
+  </div>
+</div>

@@ -1,0 +1,134 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import MorePosts from '../components/MorePosts.astro';
+import { BLOG_CONFIG, SITE_TITLE } from '../consts';
+import { Image } from 'astro:assets';
+import { normalizeTag, formatTag } from '../utils/tags';
+
+type Props = CollectionEntry<'blog'>['data'] & {
+	id: string;
+};
+
+const { title, description, pubDate, updatedDate, heroImage, tags = [], id } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} />
+	</head>
+	<body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
+		<Header />
+		<main class="flex-1 w-full">
+			<article class="relative">
+				<!-- Background -->
+				<div class="absolute inset-0">
+					<div class="absolute inset-0 bg-gradient-to-b from-stone-100/50 via-stone-50/50 to-transparent"></div>
+					<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,0,0,0.02),transparent_70%)]"></div>
+				</div>
+
+				<div class="relative max-w-6xl mx-auto px-6">
+					<div class="py-24 md:py-32">
+						<div class="relative max-w-3xl">
+							<div class="mb-16">
+								<span class="font-mono text-sm text-stone-500 tracking-tight block mb-8">
+									<FormattedDate date={pubDate} />
+									{updatedDate && (
+										<span class="inline-flex items-center gap-4 ml-6">
+											<span class="w-4 h-px bg-stone-200"></span>
+											<span>Updated <FormattedDate date={updatedDate} /></span>
+										</span>
+									)}
+								</span>
+								<h1 class="font-primary text-4xl sm:text-6xl md:text-7xl text-stone-900 leading-[1.15] tracking-tight">
+									{title}
+								</h1>
+								{description && (
+									<p class="mt-8 text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
+										{description}
+									</p>
+								)}
+								{tags.length > 0 && (
+									<div class="mt-8 flex flex-wrap items-center gap-2">
+										<span class="w-8 h-px bg-stone-200"></span>
+										<div class="flex flex-wrap gap-2">
+											{tags.map(tag => (
+												<a
+													href={`/blog/tag/${normalizeTag(tag)}`}
+													class="group inline-flex items-center gap-2 px-3 py-1 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors duration-300"
+												>
+													<span class="font-mono text-sm tracking-tight text-stone-600 group-hover:text-stone-800 transition-colors duration-300">
+														{formatTag(tag)}
+													</span>
+												</a>
+											))}
+										</div>
+									</div>
+								)}
+							</div>
+
+							{heroImage && (
+								<div class="relative mb-16">
+									<div class="absolute inset-0 bg-stone-200/50 rounded-2xl -rotate-1"></div>
+									<div class="relative aspect-[2/1] overflow-hidden rounded-xl">
+										<Image
+											src={heroImage}
+											alt={title}
+											width={768}
+											height={384}
+											densities={[1, 2]}
+											class="w-full h-full object-cover"
+										/>
+									</div>
+								</div>
+							)}
+
+							<div class="prose prose-stone lg:prose-lg prose-headings:font-primary prose-p:text-stone-600 prose-a:text-stone-900 hover:prose-a:text-stone-600 prose-a:no-underline prose-a:border-b prose-a:border-stone-300 hover:prose-a:border-stone-600 prose-blockquote:border-l-stone-200 prose-blockquote:text-stone-600 prose-blockquote:not-italic prose-blockquote:pl-6 prose-hr:border-stone-200 mb-16">
+								<slot />
+							</div>
+
+							<!-- Author Bio -->
+							<div class="flex gap-8 pt-16 border-t border-stone-200/50">
+								<!-- Image -->
+								<div class="relative group w-20 h-20 sm:w-24 sm:h-24 flex-none">
+									<div class="absolute inset-0 bg-stone-200/30 rounded-lg rotate-3 transition duration-500 group-hover:rotate-6"></div>
+									<div class="relative overflow-hidden rounded-lg rotate-2 transition duration-500 group-hover:rotate-0">
+										<div class="w-full h-full bg-stone-100">
+											<Image
+												src={BLOG_CONFIG.author.avatar}
+												alt={BLOG_CONFIG.author.name}
+												class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+											/>
+										</div>
+									</div>
+								</div>
+
+								<!-- Content -->
+								<div class="flex-1 flex flex-col gap-4 min-w-0">
+									<div>
+										<h2 class="font-primary text-2xl text-stone-900 mb-2">{BLOG_CONFIG.author.name}</h2>
+										<p class="font-mono text-sm tracking-tight text-stone-500">{BLOG_CONFIG.author.title}</p>
+									</div>
+									<p class="text-base text-stone-600 leading-relaxed">{BLOG_CONFIG.author.bio}</p>
+									<div class="pt-3">
+										<SocialLinks />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<!-- Recent Posts -->
+			<div class="border-t border-stone-200/50">
+				<MorePosts currentPostId={id} />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

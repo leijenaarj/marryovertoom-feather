@@ -1,0 +1,27 @@
+---
+import FeatherIcon from './FeatherIcon.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<div class="relative">
+  <div class="inline-flex items-center gap-3 group">
+    <div class="relative pl-0 sm:pl-12">
+      <span
+        class="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-8 h-px bg-stone-200 group-hover:w-10 transition-all duration-300"
+      ></span>
+      <span
+        class="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 w-4 h-px bg-stone-300 group-hover:w-6 transition-all duration-300"
+      ></span>
+      <a href="/" class="inline-flex items-center gap-3">
+        <h2
+          class="font-primary text-3xl sm:text-4xl text-stone-600 group-hover:text-stone-900 transition-colors duration-300"
+        >
+          {SITE_TITLE}
+        </h2>
+        <FeatherIcon
+          class="w-6 h-6 text-stone-600 group-hover:text-stone-900 -rotate-12 group-hover:rotate-0 transition-all duration-300"
+        />
+      </a>
+    </div>
+  </div>
+</div>

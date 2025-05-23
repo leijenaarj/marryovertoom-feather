@@ -1,0 +1,60 @@
+---
+import ArticleList from './ArticleList.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { BLOG_CONFIG } from '../consts';
+
+// Get all posts and sort by date
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, BLOG_CONFIG.journal.recentPostsCount);
+---
+
+{posts.length > 0 && (
+  <div class="relative py-16 sm:py-24 md:py-32">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-stone-50 via-stone-100/10 to-stone-50"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02),transparent_70%)]"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6">
+      <!-- Header -->
+      <div class="relative mb-16 sm:mb-24">
+        <div class="relative max-w-xl">
+          <div class="inline-flex items-center gap-3 mb-8">
+            <span class="w-8 h-px bg-stone-200"></span>
+            <span class="font-mono text-sm text-stone-500 tracking-tight">
+              Latest Entries
+            </span>
+          </div>
+          <h2 class="font-primary text-4xl sm:text-5xl text-stone-900 mb-6">From the Journal</h2>
+          <p class="text-base sm:text-lg text-stone-600 leading-relaxed">
+            Explore my latest thoughts and insights on design, technology, and creative development.
+          </p>
+        </div>
+      </div>
+
+      <ArticleList posts={posts} showHeader={false} />
+
+      <!-- Read More Link -->
+      <div class="mt-16 sm:mt-24">
+        <a href="/blog" class="group inline-flex items-center gap-3">
+          <span class="font-mono text-sm text-stone-600 group-hover:text-stone-900 transition-colors duration-300">View All Entries</span>
+          <span class="w-6 sm:w-8 h-px bg-stone-200 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom border -->
+    <div class="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
+  </div>
+)}
+
+{posts.length === 0 && (
+  <div class="py-32 pl-12">
+    <p class="font-primary text-3xl text-stone-600 leading-relaxed">
+      No entries found.<br/>Check back soon for updates.
+    </p>
+  </div>
+)}

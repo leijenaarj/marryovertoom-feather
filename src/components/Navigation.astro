@@ -1,0 +1,23 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { HEADER_LINKS } from '../consts';
+---
+
+<nav class="w-auto">
+  <div class="flex items-baseline gap-6">
+    <div class="flex items-baseline gap-4 sm:gap-8 text-sm tracking-wide font-mono">
+      {
+        HEADER_LINKS.map((link, index) => (
+          <HeaderLink 
+            href={link.href} 
+            class={`group relative ${index === 0 ? 'sm:pl-8' : ''}`}
+          >
+            {link.text}
+            <span class={`absolute -bottom-1 ${index === 0 ? 'sm:left-8' : 'left-0'} w-0 h-px bg-gradient-to-r from-stone-300 to-stone-200 group-hover:w-full transition-all duration-300`}></span>
+            <span class={`absolute -bottom-1 ${index === 0 ? 'sm:left-8' : 'left-0'} w-0 h-px bg-gradient-to-r from-stone-200 to-transparent group-hover:w-[80%] transition-all duration-500 delay-100`}></span>
+          </HeaderLink>
+        ))
+      }
+    </div>
+  </div>
+</nav>
