@@ -6,9 +6,9 @@
 import authorImage from './assets/author.avif';
 
 export const SITE_URL = 'https://feather.astrothem.es';
-export const SITE_TITLE = 'Feather';
+export const SITE_TITLE = 'Marry Overtoom';
 export const SITE_DESCRIPTION =
-  'A collection of thoughts, stories, and ideas that shape our perspective on design and technology.';
+  'Kunst projecten van Marry Overtoom.';
 
 // Blog Configuration
 // Adjust these values to customize the blog's behavior
@@ -18,8 +18,8 @@ export const BLOG_CONFIG = {
 
   // Author information (used in blog posts and author bio)
   author: {
-    name: 'Niall Quinn',
-    title: 'Designer & Developer',
+    name: 'Marry Overtoom',
+    title: 'Beeldend kunstenaar',
     bio: "I'm passionate about creating meaningful digital experiences through thoughtful design and innovative technology. Through this journal, I share insights and lessons learned along the way.",
     avatar: authorImage,
   },
@@ -54,11 +54,11 @@ export const HEADER_LINKS = [
     href: '/',
   },
   {
-    text: 'Journal',
+    text: 'Projecten',
     href: '/blog',
   },
   {
-    text: 'About',
+    text: 'Over',
     href: '/about',
   },
 ] as const;
@@ -67,11 +67,11 @@ export const HEADER_LINKS = [
 // Add your full social media profile URLs here
 // Remove or comment out any networks you don't use
 export const SOCIAL_LINKS = {
-  twitter: '#',
-  instagram: '#',
-  youtube: '#',
-  mastodon: '#',
-  // linkedin: 'https://linkedin.com/in/yourusername',
+  // twitter: '#',
+  // instagram: '#',
+  // youtube: '#',
+  // mastodon: '#',
+  linkedin: 'https://linkedin.com/in/marry-overtoom-5a28323b/',
   // github: 'https://github.com/yourusername',
   // medium: 'https://medium.com/@yourusername',
   // facebook: 'https://facebook.com/yourusername',

@@ -1,9 +1,9 @@
 ---
-title: 'The Evolution of Design Systems in Modern Web Development'
-description: 'Exploring how design systems have transformed from static style guides to living, breathing ecosystems that power modern web applications.'
+title: 'Metrøality 2025'
+description: 'Tilburg wereldstad'
 pubDate: 'Feb 10 2025'
 heroImage: '/blog-placeholder-3.jpg'
-tags: ['design systems', 'development', 'design']
+tags: ['routering', 'verbinding', 'geluid']
 ---
 
 Design systems have become the backbone of modern web development, evolving far beyond their humble beginnings as simple style guides. Today, they represent a comprehensive approach to building digital products that seamlessly blend design, functionality, and developer experience.

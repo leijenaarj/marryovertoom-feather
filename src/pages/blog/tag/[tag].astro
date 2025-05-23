@@ -65,21 +65,21 @@ const formattedTag = formatTag(tag);
             <div class="relative max-w-xl">
               <div class="inline-flex items-center gap-3 mb-8">
                 <span class="w-8 h-px bg-stone-200"></span>
-                <span class="font-mono text-sm text-stone-500 tracking-tight">
+                <span class="font-mono text-sm text-stone-500 tracking-wider">
                   {posts.length}
                   {posts.length === 1 ? 'Entry' : 'Entries'}
                 </span>
               </div>
               <div class="flex items-baseline gap-4 mb-12">
                 <h1
-                  class="font-primary text-4xl sm:text-6xl md:text-7xl text-stone-900 leading-[1.15] tracking-tight"
+                  class="font-primary text-4xl sm:text-6xl md:text-7xl text-stone-900 leading-[1.15] tracking-wider"
                 >
                   {formattedTag}
                 </h1>
                 <div class="relative pl-4">
                   <span class="absolute left-0 top-1/2 -translate-y-1/2 w-px h-8 bg-stone-200"
                   ></span>
-                  <span class="font-mono text-sm tracking-tight text-stone-400">tag</span>
+                  <span class="font-mono text-sm tracking-wider text-stone-400">tag</span>
                 </div>
               </div>
               <p class="text-base sm:text-lg text-stone-600 leading-relaxed max-w-lg">
