@@ -3,7 +3,7 @@ title: "Performance as a Design Feature: Building for the Modern Web"
 description: How performance optimization has evolved from a technical
   consideration to a crucial aspect of user experience design.
 pubDate: Feb 19 2025
-heroImage: images/screenshot-2024-09-02-at-12.53.28.png
+heroImage: /images/screenshot-2024-09-02-at-12.53.28.png
 tags:
   - performance
   - user experience
