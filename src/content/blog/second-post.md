@@ -1,9 +1,14 @@
 ---
-title: 'AI and Design: A New Era of Creative Collaboration'
-description: 'Exploring how artificial intelligence is transforming the design process and empowering creators to push creative boundaries.'
-pubDate: 'Feb 15 2025'
-heroImage: '/blog-placeholder-4.jpg'
-tags: ['artificial intelligence', 'design tools', 'creativity']
+title: "AI and Design: A New Era of Creative Collaboration"
+description: Exploring how artificial intelligence is transforming the design
+  process and empowering creators to push creative boundaries.
+pubDate: Feb 15 2025
+heroImage: /images/img_3835.jpeg_compressed.jpeg
+tags:
+  - artificial intelligence
+  - design tools
+  - creativity
+date: 2025-05-24T16:14:00.000Z
 ---
 
 The intersection of artificial intelligence and design marks a pivotal moment in creative history. As AI tools become more sophisticated, they're not replacing designers but rather augmenting their capabilities and opening new avenues for innovation.
