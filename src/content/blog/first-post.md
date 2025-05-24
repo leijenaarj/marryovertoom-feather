@@ -1,5 +1,5 @@
 ---
-heroImage: src/assets/images/koningswei3.jpg
+heroImage: public/koningswei3.jpg
 pubDate: Feb 10 2025
 thumbnail: /images/Koningswei3.jpg
 title: Metrøality 2025
