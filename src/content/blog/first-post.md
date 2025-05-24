@@ -1,9 +1,9 @@
 ---
 heroImage: src/assets/images/koningswei3.jpg
 pubDate: Feb 10 2025
-thumbnail: /images/Koningswei3.jpg
 title: Metrøality 2025
 date: 2025-05-23T23:25:00.000Z
+thumbnail: images/screenshot-2024-09-02-at-12.53.28.png
 tags:
   - routering
   - verbinding
