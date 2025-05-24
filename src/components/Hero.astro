@@ -1,9 +1,14 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import {SITE_TITLE, SITE_DESCRIPTION, BLOG_CONFIG} from '../consts';
 import { getCollection } from 'astro:content';
+import RecentPosts from "./RecentPosts.astro";
+import ArticleList from "./ArticleList.astro";
 
 // Get total post count
 const postCount = (await getCollection('blog')).length;
+const posts = (await getCollection('blog'))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, BLOG_CONFIG.journal.recentPostsCount);
 ---
 
 <div class="relative overflow-hidden">
@@ -18,18 +23,18 @@ const postCount = (await getCollection('blog')).length;
       <!-- Welcome -->
       <div class="relative mb-8 sm:mb-12">
         <div class="inline-flex items-center gap-3">
-          <span class="w-8 h-px bg-stone-200"></span>
-          <span class="font-mono text-sm text-stone-500 tracking-wider">Welcome</span>
+          <span class="w-8 h-px bg-stone-400"></span>
+          <span class="font-mono text-sm text-stone-500 tracking-wider">Welkom</span>
         </div>
       </div>
 
-      <!-- Title -->
+       <!--Title-->
       <div class="relative max-w-4xl mb-8 sm:mb-12">
         <h1 class="font-primary text-4xl sm:text-6xl md:text-7xl text-stone-900 leading-[1.15] tracking-wider">
           <span class="relative inline-block">
             {SITE_TITLE}
           </span>
-          <span class="block mt-2 sm:mt-4 text-4xl sm:text-6xl md:text-7xl text-stone-600">A Journal of Design & Technology</span>
+          <!--<span class="block mt-2 sm:mt-4 text-4xl sm:text-6xl md:text-7xl text-stone-600">A Journal of Design & Technology</span>-->
         </h1>
       </div>
 
@@ -41,17 +46,26 @@ const postCount = (await getCollection('blog')).length;
           </p>
         </div>
 
-        <!-- Actions -->
-        <div class="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 md:gap-12">
+        <ArticleList posts={posts} showHeader={false} />
+        <div class="mt-16 sm:mt-24">
           <a href="/blog" class="group inline-flex items-center gap-3">
-            <span class="font-mono text-sm text-stone-600 group-hover:text-stone-900 transition-colors duration-300">Read Journal</span>
-            <span class="w-6 sm:w-8 h-px bg-stone-200 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>
+            <span class="font-mono text-sm text-stone-600 group-hover:text-stone-900 transition-colors duration-300">Bekijk alle projecten</span>
+            <span class="w-6 sm:w-8 h-px bg-stone-400 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>
           </a>
-          <div class="inline-flex items-center gap-3">
-            <span class="w-4 h-px bg-stone-200"></span>
-            <span class="font-mono text-sm text-stone-400 tabular-nums">{postCount} entries</span>
-          </div>
         </div>
+        <!-- Actions -->
+        <!--<div class="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 md:gap-12">-->
+        <!--  <a href="/blog" class="group inline-flex items-center gap-3">-->
+        <!--    <span class="font-mono text-sm text-stone-600 group-hover:text-stone-900 transition-colors duration-300">Bekijk projecten</span>-->
+        <!--    <span class="w-6 sm:w-8 h-px bg-stone-400 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>-->
+        <!--  </a>-->
+        <!--  <div class="inline-flex items-center gap-3">-->
+        <!--    <span class="w-4 h-px bg-stone-400"></span>-->
+        <!--    <span class="font-mono text-sm text-stone-400 tabular-nums">{postCount} entries</span>-->
+        <!--  </div>-->
+        <!--</div>-->
+
+
       </div>
     </div>
   </div>

@@ -8,7 +8,6 @@ tags:
   - verbinding
   - geluid
 description: Tilburg wereldstad
-rating: 5
 ---
 
 Design systems have become the backbone of modern web development, evolving far beyond their humble beginnings as simple style guides. Today, they represent a comprehensive approach to building digital products that seamlessly blend design, functionality, and developer experience.

@@ -6,7 +6,7 @@ public_folder: "/images" # The src attribute for uploaded media
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    folder: "src/content/blog" # The path to the folder where the documents are stored
+    folder: "src/content/projecten" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in frontmatter
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }

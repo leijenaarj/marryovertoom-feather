@@ -5,7 +5,7 @@
 // These values are used throughout the site to provide consistent branding and descriptions.
 import authorImage from './assets/author.avif';
 
-export const SITE_URL = 'https://feather.astrothem.es';
+export const SITE_URL = 'https://marryovertoom.nl';
 export const SITE_TITLE = 'Marry Overtoom';
 export const SITE_DESCRIPTION =
   'Kunst projecten van Marry Overtoom.';
@@ -26,9 +26,9 @@ export const BLOG_CONFIG = {
 
   // Journal page settings
   journal: {
-    title: 'Journal', // The title shown on the blog index page
+    title: 'Projecten', // The title shown on the blog index page
     description:
-      'A collection of thoughts, stories, and ideas that shape our perspective on design and technology.',
+      'Kunst projecten van Marry Overtoom. Bekijk hier de laatste projecten.',
     recentPostsCount: 3, // Number of posts to show on the home page
   },
 
@@ -40,9 +40,9 @@ export const BLOG_CONFIG = {
 
   // Navigation labels
   navigation: {
-    prevLabel: 'Previous',
-    nextLabel: 'Next',
-    backToJournal: 'Back to Journal',
+    prevLabel: 'Vorige',
+    nextLabel: 'Volgende',
+    backToJournal: 'Terug naar projecten',
   },
 } as const;
 
@@ -58,8 +58,8 @@ export const HEADER_LINKS = [
     href: '/blog',
   },
   {
-    text: 'Over',
-    href: '/about',
+    text: 'Info',
+    href: '/info',
   },
 ] as const;
 
