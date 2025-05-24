@@ -3,7 +3,7 @@ title: Markdown Style Guide
 description: Here is a sample of some basic Markdown syntax that can be used
   when writing Markdown content in Astro.
 pubDate: Feb 21 2025
-heroImage: /images/screenshot-2024-09-02-at-12.53.28.png
+heroImage: images/img_4118.jpeg_compressed.jpeg
 tags:
   - markdown
   - documentation
