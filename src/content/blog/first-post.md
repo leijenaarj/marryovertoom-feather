@@ -1,9 +1,15 @@
 ---
-title: 'Metrøality 2025'
-description: 'Tilburg wereldstad'
-pubDate: 'Feb 10 2025'
-heroImage: '/blog-placeholder-3.jpg'
-tags: ['routering', 'verbinding', 'geluid']
+heroImage: /blog-placeholder-3.jpg
+pubDate: Feb 10 2025
+title: Metrøality 2025
+date: 2025-05-23T23:25:00.000Z
+thumbnail: src/assets/images/Koningswei3.jpg
+tags:
+  - routering
+  - verbinding
+  - geluid
+description: Tilburg wereldstad
+rating: 5
 ---
 
 Design systems have become the backbone of modern web development, evolving far beyond their humble beginnings as simple style guides. Today, they represent a comprehensive approach to building digital products that seamlessly blend design, functionality, and developer experience.
