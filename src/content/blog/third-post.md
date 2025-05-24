@@ -1,9 +1,14 @@
 ---
-title: 'Performance as a Design Feature: Building for the Modern Web'
-description: 'How performance optimization has evolved from a technical consideration to a crucial aspect of user experience design.'
-pubDate: 'Feb 19 2025'
-heroImage: '/blog-placeholder-2.jpg'
-tags: ['performance', 'user experience', 'development']
+title: "Performance as a Design Feature: Building for the Modern Web"
+description: How performance optimization has evolved from a technical
+  consideration to a crucial aspect of user experience design.
+pubDate: Feb 19 2025
+heroImage: images/screenshot-2024-09-02-at-12.53.28.png
+tags:
+  - performance
+  - user experience
+  - development
+date: 2025-05-24T14:04:00.000Z
 ---
 
 In today's digital landscape, performance isn't just a technical metric—it's a fundamental aspect of user experience that can make or break a product's success. Let's explore how modern web development approaches performance as a core design feature.

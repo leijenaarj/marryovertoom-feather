@@ -1,11 +1,15 @@
 ---
-title: 'Markdown Style Guide'
-description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
-pubDate: 'Feb 21 2025'
-heroImage: '/blog-placeholder-1.jpg'
-tags: ['markdown', 'documentation', 'development']
+title: Markdown Style Guide
+description: Here is a sample of some basic Markdown syntax that can be used
+  when writing Markdown content in Astro.
+pubDate: Feb 21 2025
+heroImage: src/assets/images/koningswei3.jpg
+tags:
+  - markdown
+  - documentation
+  - development
+date: 2025-05-24T13:56:00.000Z
 ---
-
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 
 ## Headings
@@ -40,7 +44,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ### Output
 
-![blog placeholder](/blog-placeholder-about.jpg)
+![blog placeholder](public/koningswei3.jpg)
 
 ## Blockquotes
 
@@ -57,8 +61,8 @@ The blockquote element represents content that is quoted from another source, op
 
 #### Output
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae.\
+> **Note** that you can use *Markdown syntax* within a blockquote.
 
 ### Blockquote with attribution
 
@@ -90,7 +94,7 @@ The blockquote element represents content that is quoted from another source, op
 
 | Italics   | Bold     | Code   |
 | --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
+| *italics* | **bold** | `code` |
 
 ## Code Blocks
 
@@ -158,9 +162,9 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 #### Output
 
-- List item
-- Another item
-- And another item
+* List item
+* Another item
+* And another item
 
 ### Nested list
 
@@ -178,13 +182,15 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 #### Output
 
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
+* Fruit
+
+  * Apple
+  * Orange
+  * Banana
+* Dairy
+
+  * Milk
+  * Cheese
 
 ## Other Elements — abbr, sub, sup, kbd, mark
 
