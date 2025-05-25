@@ -4,4 +4,9 @@
 @theme {
   --font-primary: "Instrument Serif", serif;
   --font-secondary: "DM Sans", sans-serif;
+  --bg-marry: #ccc;
+}
+
+.prose h2, .prose h3, .prose h1 {
+  @apply tracking-wider;
 }

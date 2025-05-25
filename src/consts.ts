@@ -3,7 +3,7 @@
 
 // Site Configuration
 // These values are used throughout the site to provide consistent branding and descriptions.
-import authorImage from './assets/author.avif';
+import authorImage from './assets/pasfoto.png';
 
 export const SITE_URL = 'https://marryovertoom.nl';
 export const SITE_TITLE = 'Marry Overtoom';
@@ -19,8 +19,8 @@ export const BLOG_CONFIG = {
   // Author information (used in blog posts and author bio)
   author: {
     name: 'Marry Overtoom',
-    title: 'Beeldend kunstenaar',
-    bio: "I'm passionate about creating meaningful digital experiences through thoughtful design and innovative technology. Through this journal, I share insights and lessons learned along the way.",
+    title: 'Beeldend kunstenaar, adviseur, curator en initiator',
+    bio: "",
     avatar: authorImage,
   },
 

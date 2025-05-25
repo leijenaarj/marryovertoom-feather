@@ -1,136 +1,135 @@
 ---
-import { SITE_TITLE } from '../consts';
+import {SITE_TITLE} from '../consts';
 import SocialLinks from './SocialLinks.astro';
 import FeatherIcon from './FeatherIcon.astro';
-import { getCollection } from 'astro:content';
-import { normalizeTag, formatTag } from '../utils/tags';
+import {getCollection} from 'astro:content';
+import {normalizeTag, formatTag} from '../utils/tags';
 
 const today = new Date();
 
 // Get all posts and count tag frequencies
 const posts = await getCollection('blog');
 const tagCounts = posts.reduce((acc, post) => {
-	post.data.tags.forEach(tag => {
-		acc[tag] = (acc[tag] || 0) + 1;
-	});
-	return acc;
+    post.data.tags.forEach(tag => {
+        acc[tag] = (acc[tag] || 0) + 1;
+    });
+    return acc;
 }, {} as Record<string, number>);
 
 // Get top 5 tags by post count
 const popularTags = Object.entries(tagCounts)
-	.sort(([, a], [, b]) => b - a)
-	.slice(0, 5)
-	.map(([tag]) => ({
-		name: formatTag(tag),
-		href: `/blog/tag/${normalizeTag(tag)}`,
-	}));
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 5)
+    .map(([tag]) => ({
+        name: formatTag(tag),
+        href: `/blog/tag/${normalizeTag(tag)}`,
+    }));
 ---
 
 <footer class="relative">
-	<!-- Background gradients -->
-	<div class="absolute inset-0">
-		<div class="absolute inset-0 bg-gradient-to-t from-stone-100/50 via-stone-50/50 to-transparent"></div>
-		<div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(0,0,0,0.02),transparent_70%)]"></div>
-	</div>
+    <!-- Background gradients -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-100/50 via-stone-50/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(0,0,0,0.02),transparent_70%)]"></div>
+    </div>
 
-	<!-- Top border -->
-	<div class="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
+    <!-- Top border -->
+    <div class="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
 
-	<div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 sm:pb-24">
-		<!-- Main content -->
-		<div class="flex flex-col gap-16 sm:gap-24 md:gap-32">
-			<!-- Navigation, Latest Entries, and Social -->
-			<div class="grid grid-cols-1 md:grid-cols-[1fr_200px_200px] gap-8 md:gap-16 items-start">
-				<!-- Popular Tags -->
-				<div>
-					<div class="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-						<span class="w-6 sm:w-8 h-px bg-stone-400"></span>
-						<span class="text-stone-400 font-mono text-sm">Popular Topics</span>
-					</div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 sm:pb-24">
+        <!-- Main content -->
+        <div class="flex flex-col gap-16 sm:gap-24 md:gap-32">
+            <!-- Navigation, Latest Entries, and Social -->
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_200px_200px] gap-8 md:gap-16 items-start">
+                <!-- Popular Tags -->
+                <div>
+                    <div class="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                        <span class="w-6 sm:w-8 h-px bg-stone-400"></span>
+                        <span class="text-stone-400 font-mono text-sm">Thema's</span>
+                    </div>
 
-					<div class="space-y-4">
-						{popularTags.map(tag => (
-							<a href={tag.href} class="group block">
-								<div class="relative md:pl-8">
-									<span class="hidden md:block absolute left-0 top-[0.8em] w-4 sm:w-6 h-px bg-stone-400 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
-									<h3 class="font-primary text-lg text-stone-600 group-hover:text-stone-900 transition-colors duration-300">
-										{tag.name}
-									</h3>
-								</div>
-							</a>
-						))}
-					</div>
-				</div>
+                    <ul class="space-y-4 sm:space-y-6">
+                        {popularTags.map(tag => (
+                                <li>
+                                    <a href={tag.href} class="group inline-flex items-center gap-2 sm:gap-3">
+                                        <span class="text-stone-500 group-hover:text-stone-800 transition-colors duration-300">{tag.name}</span>
+                                        <span class="w-0 h-px bg-stone-300 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
+                                    </a>
+                                </li>
+                        ))}
+                    </ul>
+                </div>
 
-				<!-- Navigation -->
-				<nav>
-					<div class="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-						<span class="w-6 sm:w-8 h-px bg-stone-400"></span>
-						<span class="text-stone-400 font-mono text-sm">Navigation</span>
-					</div>
+                <!-- Navigation -->
+                <nav>
+                    <div class="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                        <span class="w-6 sm:w-8 h-px bg-stone-400"></span>
+                        <span class="text-stone-400 font-mono text-sm">Navigation</span>
+                    </div>
 
-					<ul class="space-y-4 sm:space-y-6">
-						<li>
-							<a href="/" class="group inline-flex items-center gap-2 sm:gap-3">
-								<span class="text-stone-500 group-hover:text-stone-800 transition-colors duration-300">Home</span>
-								<span class="w-0 h-px bg-stone-300 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
-							</a>
-						</li>
-						<li>
-							<a href="/blog" class="group inline-flex items-center gap-2 sm:gap-3">
-								<span class="text-stone-500 group-hover:text-stone-800 transition-colors duration-300">Projecten</span>
-								<span class="w-0 h-px bg-stone-300 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
-							</a>
-						</li>
-						<li>
-							<a href="/src/pages/info" class="group inline-flex items-center gap-2 sm:gap-3">
-								<span class="text-stone-500 group-hover:text-stone-800 transition-colors duration-300">Info</span>
-								<span class="w-0 h-px bg-stone-300 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
-							</a>
-						</li>
-					</ul>
-				</nav>
+                    <ul class="space-y-4 sm:space-y-6">
+                        <li>
+                            <a href="/" class="group inline-flex items-center gap-2 sm:gap-3">
+                                <span class="text-stone-500 group-hover:text-stone-800 transition-colors duration-300">Home</span>
+                                <span class="w-0 h-px bg-stone-300 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blog" class="group inline-flex items-center gap-2 sm:gap-3">
+                                <span class="text-stone-500 group-hover:text-stone-800 transition-colors duration-300">Projecten</span>
+                                <span class="w-0 h-px bg-stone-300 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/src/pages/info" class="group inline-flex items-center gap-2 sm:gap-3">
+                                <span class="text-stone-500 group-hover:text-stone-800 transition-colors duration-300">Info</span>
+                                <span class="w-0 h-px bg-stone-300 group-hover:w-6 sm:group-hover:w-8 transition-all duration-300"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
-				<!-- Social -->
-				<div>
-					<div class="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-						<span class="w-6 sm:w-8 h-px bg-stone-400"></span>
-						<span class="text-stone-400 font-mono text-sm">Connect</span>
-					</div>
-					<SocialLinks />
-				</div>
-			</div>
+                <!-- Social -->
+                <div>
+                    <div class="inline-flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                        <span class="w-6 sm:w-8 h-px bg-stone-400"></span>
+                        <span class="text-stone-400 font-mono text-sm">Connect</span>
+                    </div>
+                    <SocialLinks/>
+                </div>
+            </div>
 
-			<!-- Bottom section -->
-			<div class="flex flex-col items-center gap-6 sm:gap-8">
-				<!-- Logo -->
-				<a href="/" class="group">
-					<div class="flex items-center gap-2 sm:gap-3">
-						<h2 class="font-primary text-xl sm:text-2xl text-stone-600 group-hover:text-stone-900 transition-colors duration-300">
-							{SITE_TITLE}
-						</h2>
-						<FeatherIcon class="w-4 h-4 sm:w-5 sm:h-5 text-stone-600 group-hover:text-stone-900 -rotate-12 group-hover:rotate-0 transition-all duration-300" />
-					</div>
-				</a>
+            <!-- Bottom section -->
+            <div class="flex flex-col items-center gap-6 sm:gap-8">
+                <!-- Logo -->
+                <a href="/" class="group">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <h2 class="font-primary text-xl sm:text-2xl text-stone-600 group-hover:text-stone-900 transition-colors duration-300">
+                            {SITE_TITLE}
+                        </h2>
+                        <FeatherIcon
+                                class="w-4 h-4 sm:w-5 sm:h-5 text-stone-600 group-hover:text-stone-900 -rotate-12 group-hover:rotate-0 transition-all duration-300"/>
+                    </div>
+                </a>
 
-				<!-- Copyright -->
-				<div class="text-center">
-					<div class="flex items-center justify-center gap-2 sm:gap-3">
-						<span class="w-8 sm:w-12 h-px bg-stone-400"></span>
-						<p class="font-mono text-sm text-stone-400 tracking-wider">
-							&copy; {today.getFullYear()} All rights reserved.
-						</p>
-						<span class="w-8 sm:w-12 h-px bg-stone-400"></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                <!-- Copyright -->
+                <div class="text-center">
+                    <div class="flex items-center justify-center gap-2 sm:gap-3">
+                        <span class="w-8 sm:w-12 h-px bg-stone-400"></span>
+                        <p class="font-mono text-sm text-stone-400 tracking-wider">
+                            &copy; {today.getFullYear()} All rights reserved.
+                        </p>
+                        <span class="w-8 sm:w-12 h-px bg-stone-400"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- Bottom border -->
-	<div class="absolute bottom-0 w-full">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6">
-			<div class="h-px w-full bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
-		</div>
-	</div>
+    <!-- Bottom border -->
+    <div class="absolute bottom-0 w-full">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="h-px w-full bg-gradient-to-r from-transparent via-stone-200/50 to-transparent"></div>
+        </div>
+    </div>
 </footer>

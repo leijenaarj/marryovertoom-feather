@@ -10,33 +10,36 @@ tags:
 description: Tilburg wereldstad
 ---
 
-Design systems have become the backbone of modern web development, evolving far beyond their humble beginnings as simple style guides. Today, they represent a comprehensive approach to building digital products that seamlessly blend design, functionality, and developer experience.
+Nadat de laatste unit op het Koningsplein verdween, ± 8 jaar geleden, is Metrøality in gerenoveerde staat weer terug in Tilburg! Inmiddels zijn de vitrines en putten met roosters van 3 van de 4 stations geplaatst:
 
-## The Journey from Style Guides to Living Systems
+- Stadsforum (bij het Paleis)
+- Koningswei (t.o. de Stadswinkel)
+- Spoorzone (de Willem II-passage)
 
-The transformation of design systems has been remarkable. What started as basic documentation of colors and typography has grown into sophisticated ecosystems that include:
+Voor een 4e unit worden op dit moment nog enkele locaties onderzocht.
 
-- Component libraries with built-in accessibility
-- Design tokens that power theming and customization
-- Documentation that serves both designers and developers
-- Integration with modern development workflows
+Het originele ontwerp (1996) van de plattegrond in de vitrine is aangepast aan de hedendaagse heringerichte situatie. De audio- en lichttechniek is verduurzaamd.
 
-## Impact on Development Workflows
+Vanuit de putten klinkt, getriggered met bewegingssensoren, het vernieuwde geluid van arriverende, stilstaande en vertrekkende metrotreinen.
 
-Modern design systems have revolutionized how teams work together. Designers and developers now share a common language, reducing friction and accelerating product development. This shared understanding has led to:
+De plattegrond met daarop het centrum van Tilburg, is uitgebreid met de Spoorzone en de Piushaven, twee nieuwe centra in de stad. Vanaf de Spoorzone lopend langs de culturele as van Tilburg door de Willem II-straat richting het Stadsforum en de Koningswei kom je langs de 3 stations en kun je deze beleven.
 
-- Faster prototyping and iteration cycles
-- Consistent user experiences across platforms
-- Reduced technical debt through standardization
-- Improved collaboration between design and development teams
+Op de plattegrond zijn de diverse culturele instellingen aangegeven die het centrumgebied rijk is.
 
-## Looking Ahead: The Future of Design Systems
+Meer informatie: Metrøality 1996
 
-As we look to the future, design systems continue to evolve. Emerging trends suggest they will become even more integral to the development process:
+## Realisatie i.s.m.:
 
-- AI-powered component suggestions
-- Automated accessibility compliance
-- Real-time collaboration features
-- Cross-platform design tokens
+- Arno Peeters, audio
+- K.E.D. Jos Knoops, electronica
+- Edesign, prints op acrylaatplaat en folies
+- Deltasign, vitrines
 
-The key to success lies in building systems that are flexible enough to evolve with technology while remaining practical for day-to-day use. As we continue to push the boundaries of web development, design systems will undoubtedly play a crucial role in shaping the future of digital experiences.
+## Met dank aan:
+
+- de gemeente Tilburg (Cultuur in het Publieke Domein)
+- Albert Kliest
+- Jorgen Leijenaar
+
+
+
