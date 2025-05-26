@@ -1,80 +1,98 @@
 ---
 import FormattedDate from './FormattedDate.astro';
+import {Image} from "astro:assets";
 
 interface Props {
-  posts: Array<{
-    id?: string;
-    slug?: string;
-    data: {
-      title: string;
-      pubDate: Date;
-      description?: string;
-    };
-  }>;
-  showHeader?: boolean;
+    posts: Array<{
+        id?: string;
+        slug?: string;
+        data: {
+            title: string;
+            pubDate: Date;
+            description?: string;
+            heroImage?: string;
+        };
+    }>;
+    showHeader?: boolean;
 }
 
-const { posts, showHeader = true } = Astro.props;
+const {posts, showHeader = true} = Astro.props;
 ---
 
 <section>
-  {showHeader && (
-    <div class="relative mb-16 pl-12">
-      <span class="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-px bg-stone-400"></span>
-      <div class="flex items-baseline justify-between">
-        <div class="flex items-baseline gap-4">
-          <span class="font-mono text-sm text-stone-500 tracking-wider">Latest Entries</span>
-        </div>
-        <a href="/blog" class="group inline-flex items-center gap-3">
+    {showHeader && (
+            <div class="relative mb-16 pl-12">
+                <span class="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-px bg-stone-400"></span>
+                <div class="flex items-baseline justify-between">
+                    <div class="flex items-baseline gap-4">
+                        <span class="font-mono text-sm text-stone-500 tracking-wider">Latest Entries</span>
+                    </div>
+                    <a href="/blog" class="group inline-flex items-center gap-3">
           <span class="font-mono text-sm text-stone-500 group-hover:text-stone-800 transition-colors duration-300">
             Bekijk projecten
           </span>
-          <span class="w-8 h-px bg-stone-400 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>
-        </a>
-      </div>
-    </div>
-  )}
+                        <span class="w-8 h-px bg-stone-400 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>
+                    </a>
+                </div>
+            </div>
+    )}
 
-  <div class="relative space-y-12">
-    {posts.map((post, index) => (
-      <article class="group">
-        <a href={`/blog/${post.id || post.slug}/`} class="block">
-          <div class="relative pl-12">
-            <!-- Decorative elements -->
-            <div class="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-stone-200/50 via-stone-200/30 to-transparent"></div>
-            <span class="absolute left-0 top-[2.25rem] w-8 h-px bg-stone-400 group-hover:w-10 transition-all duration-300"></span>
-
-            <div class="relative flex flex-col gap-4">
-              <!-- Post number -->
-              <div class="flex items-baseline gap-4">
+    <div class="relative space-y-12">
+        {posts.map((post, index) => (
+                <article class="group">
+                    <a href={`/blog/${post.id || post.slug}/`} class="block">
+                        <div class="relative pl-12">
+                            <!-- Decorative elements -->
+                            <div class="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-stone-200/50 via-stone-200/30 to-transparent"></div>
+                            <span class="absolute left-0 top-[2.25rem] w-8 h-px bg-stone-400 group-hover:w-10 transition-all duration-300"></span>
+                            <div class="relative flex flex-col gap-4">
+                                <!-- Post number -->
+                                <div class="flex items-baseline gap-4">
                 <span class="font-mono text-sm tracking-wider text-stone-400 tabular-nums">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-              </div>
+                                </div>
 
-              <!-- Post content -->
-              <div class="group-hover:translate-x-2 transition-transform duration-300">
-                <div class="space-y-4">
-                  <h3 class="font-primary text-2xl sm:text-3xl text-stone-600 group-hover:text-stone-900 transition-colors duration-300">
-                    {post.data.title}
-                  </h3>
-                  {post.data.description && (
-                    <p class="text-stone-500 leading-relaxed max-w-2xl">{post.data.description}</p>
-                  )}
-                </div>
-
-                <!-- Meta -->
-                <div class="mt-6 flex items-baseline gap-4">
+                                <!-- Post content -->
+                                <div class="group-hover:translate-x-2 transition-transform duration-300">
+                                    <div class="space-y-4">
+                                        <h3 class="font-primary text-2xl sm:text-3xl text-stone-600 group-hover:text-stone-900 transition-colors duration-300">
+                                            {post.data.title}
+                                        </h3>
+                                        {post.data.description && (
+                                                <p class="text-stone-500 leading-relaxed max-w-2xl">{post.data.description}</p>
+                                        )}
+                                    </div>
+                                    <div class="relative max-w-xl space-y-6 sm:space-y-8 md:space-y-12">
+                                        <!-- Meta -->
+                                        <div class="mt-6 flex items-baseline gap-4">
                   <span class="font-mono text-sm tracking-wider text-stone-400 tabular-nums">
-                    <FormattedDate date={post.data.pubDate} />
+                    <FormattedDate date={post.data.pubDate}/>
                   </span>
-                  <span class="w-8 h-px bg-stone-400 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </article>
-    ))}
-  </div>
+                                            <span class="w-8 h-px bg-stone-400 group-hover:w-12 group-hover:bg-stone-300 transition-all duration-300"></span>
+                                        </div>
+
+                                        {post.data.heroImage && (
+                                                <div class="mt-6 relative mb-16">
+                                                    <div class="absolute inset-0 bg-stone-400/50 rounded-2xl -rotate-1"></div>
+                                                    <div class="relative aspect-[2/1] overflow-hidden rounded-xl">
+                                                        <Image
+                                                                src={post.data.heroImage}
+                                                                alt={post.data.title}
+                                                                width={768}
+                                                                height={384}
+                                                                densities={[1, 2]}
+                                                                class="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+        ))}
+    </div>
 </section>
