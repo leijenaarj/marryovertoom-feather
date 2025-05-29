@@ -13,6 +13,6 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "heroImage", widget: "image" }
-      - { label: "Gallery", name: "galleryImages", widget: "list", fields: [{ label: "Image", widget: "image" }, { label: "Alt Text", name: "alt", widget: "string" }]}
+      - { label: "Gallery", name: "galleryImages", widget: "list", fields: [{ label: "Image", name: "src" widget: "image" }, { label: "Alt Text", name: "alt", widget: "string" }]}
       - { label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"} }
       - { label: "Body", name: "body", widget: "markdown" }
