@@ -13,6 +13,8 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "heroImage", widget: "image" }
-      - { label: "Gallery", name: "galleryImages", widget: "list", fields: [{ label: "Image", name: "src", widget: "image" }, { label: "Alt Text", name: "alt", widget: "string" }]}
+      - { label: "Image", name: "images", widget: "list", fields: [{ label: "Image file", name: "src", widget: "image" }, { label: "Description", name: "alt", widget: "string" }]}
+      - { label: "Video", name: "videos", widget: "list", fields: [{ label: "Video file", name: "src", widget: "file" }, { label: "Description", name: "alt", widget: "string" }]}
+      - { label: "Sound", name: "sounds", widget: "list", fields: [{ label: "Sound file", name: "src", widget: "file" }, { label: "Description", name: "alt", widget: "string" }]}
       - { label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"} }
       - { label: "Body", name: "body", widget: "markdown" }
