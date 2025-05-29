@@ -14,6 +14,7 @@ const blog = defineCollection({
     heroImage: z.string().optional(),
     // Array of tags, defaults to empty array if not provided
     tags: z.array(z.string()).default([]),
+    slides: z.array(z.string()).default([]),
   }),
 });
 
